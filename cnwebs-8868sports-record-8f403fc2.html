@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识与指引 · 8868体育资料索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf6f0; /* 米白底 */
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, 'PingFang SC', sans-serif;
+            line-height: 1.65;
+            color: #3a3a3a;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffffffa;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.05);
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .page-wrapper {
+                padding: 1.8rem 1.2rem;
+            }
+            body {
+                padding: 1rem 0.5rem;
+            }
+        }
+
+        /* 标题区 */
+        .hero {
+            border-bottom: 1px solid #ece4da;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #2c241e;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7a6e62;
+            border-left: 4px solid #d9c8b3;
+            padding-left: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        /* 目录感布局：两栏卡片网格 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 2rem 0;
+        }
+
+        .grid-card {
+            background: #f8f3ec;
+            border-radius: 20px;
+            padding: 1.5rem 1.3rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: transform 0.1s ease;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .grid-card h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #3f342b;
+            margin-bottom: 0.9rem;
+            border-left: 5px solid #b7a48f;
+            padding-left: 0.7rem;
+        }
+
+        .grid-card p, .grid-card ul {
+            font-size: 0.95rem;
+            color: #4b4139;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .grid-card ul li {
+            padding: 0.25rem 0 0.25rem 1.4rem;
+            position: relative;
+        }
+
+        .grid-card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #a58e78;
+            font-weight: bold;
+        }
+
+        /* 说明区 + 引用提示框 */
+        .intro-block {
+            background: #f5efe7;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .intro-block h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            color: #2c241e;
+            margin-bottom: 0.8rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-block a {
+            color: #6f5a47;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cbb9a6;
+            font-weight: 500;
+        }
+
+        .intro-block a:hover {
+            color: #3f2f21;
+            text-decoration-color: #7f6854;
+        }
+
+        .quote-tip {
+            background: #eae1d4;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px 20px 40px 20px;
+            font-style: normal;
+            margin: 1.8rem 0 1.2rem 0;
+            color: #3b3229;
+            border-left: 6px solid #b6a084;
+            font-size: 0.95rem;
+        }
+
+        .quote-tip strong {
+            font-weight: 600;
+            color: #2b221b;
+        }
+
+        .faq-abstract {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-item {
+            flex: 1 1 200px;
+            background: #fcf9f5;
+            padding: 1rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #e5dbcf;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #4a3b2e;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #675b50;
+            line-height: 1.5;
+        }
+
+        .related-info {
+            margin: 2.8rem 0 1.5rem 0;
+            border-top: 1px solid #e3d9cd;
+            padding-top: 1.8rem;
+        }
+
+        .related-info h4 {
+            font-weight: 500;
+            color: #3a2f26;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-info p {
+            color: #564b40;
+            font-size: 0.93rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7ddd0;
+            margin: 1.8rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #8b7d6e;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- hero 标题 -->
+    <div class="hero">
+        <h1>信息指引 · 8868体育</h1>
+        <div class="sub">站点介绍 · 可信说明 · 相关参考</div>
+    </div>
+
+    <!-- 目录感卡片网格 -->
+    <div class="info-grid">
+        <div class="grid-card">
+            <h3>站点定位</h3>
+            <p>提供体育资讯、数据参考和互动内容的平台，围绕运动赛事与用户需求构建信息生态。</p>
+        </div>
+        <div class="grid-card">
+            <h3>内容范畴</h3>
+            <ul>
+                <li>赛事动态与回顾</li>
+                <li>运动知识库</li>
+                <li>竞技文化讨论</li>
+            </ul>
+        </div>
+        <div class="grid-card">
+            <h3>适用场景</h3>
+            <p>日常查阅体育情报、了解项目规则、浏览相关数据，适合体育爱好者和信息收集者。</p>
+        </div>
+        <div class="grid-card">
+            <h3>可信说明</h3>
+            <p>内容来源均标注参考出处，保持中立表述，不提供承诺性结论，用户可自行核实。</p>
+        </div>
+    </div>
+
+    <!-- 说明区 + 自然链接嵌入 -->
+    <div class="intro-block">
+        <h2>关于本站的基本说明</h2>
+        <p>这是一个以体育信息整合与知识传递为主要方向的站点，内容覆盖多项运动的基本规则、赛事背景、术语解释，以及部分历史数据整理。所有信息均基于公开资料或可靠来源进行归纳，尽量保持客观与时效性。</p>
+        <p>如果你希望深入了解平台的具体功能或内容体系，可以前往 <a href="https://cnwebs-8868sports.com">8868体育</a> 查阅更完整的说明与模块介绍。该页面作为主站入口，提供了分类导航和最新动态概览。</p>
+        <p>我们建议用户结合多方信息做判断，本站仅作为辅助参考，不构成任何行动建议或保证。</p>
+    </div>
+
+    <!-- 提示框（引用块风格） -->
+    <div class="quote-tip">
+        <strong>提示：</strong> 浏览过程中如遇到需要核实的数据，建议通过多个渠道交叉验证。保持理性获取信息，有助于更全面地理解体育领域的内容。
+    </div>
+
+    <!-- FAQ 摘要区（差异化） -->
+    <h2 style="font-weight: 450; font-size: 1.3rem; margin-top: 1rem; color: #3d322a;">常见问题 · 摘要</h2>
+    <div class="faq-abstract">
+        <div class="faq-item">
+            <div class="q">信息多久更新一次？</div>
+            <div class="a">主要依据赛事周期和公开资料变动，不定期进行内容补充与修正。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">内容是否有倾向性？</div>
+            <div class="a">尽可能保持中立，仅做陈述与整理，不包含主观引导或偏向。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">能否转载站内内容？</div>
+            <div class="a">引用时请注明来源并保持原文原意，商业使用建议先沟通确认。</div>
+        </div>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="related-info">
+        <h4>相关信息</h4>
+        <p>与体育知识库相关的补充材料包括运动术语词典、赛事年鉴、规则图解等，目前均在持续丰富中。如果需要特定项目的资料，可以直接在站内搜索或通过导航栏分类查找。</p>
+        <p style="margin-top: 0.5rem;">此外，用户反馈与建议也是内容完善的重要参考，欢迎通过站内联系方式提出想法。</p>
+    </div>
+
+    <hr>
+
+    <!-- 再次自然嵌入链接（与上面不同的句式） -->
+    <p style="font-size: 0.95rem; color: #5f5346; margin-bottom: 0.8rem;">
+        若希望直接访问主站，可以通过 <a href="https://cnwebs-8868sports.com" style="text-decoration: underline; text-underline-offset: 3px;">8868体育</a> 获取更全面的导航与模块入口。
+    </p>
+
+    <div class="footer-note">
+        内容仅供参考 · 请自行核实 · 保持开放心态
+    </div>
+</div>
+</body>
+</html>
